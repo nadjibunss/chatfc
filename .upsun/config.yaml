@@ -1,0 +1,15 @@
+applications:
+  jupyter:
+    type: 'python:3.13'
+    dependencies:
+      python3:
+        jupyterlab: '*'
+    web:
+      commands:
+        start: "sh start.sh"
+
+routes:
+  "https://{default}/":
+    type: upstream
+    upstream: "jupyter:http"
+    
